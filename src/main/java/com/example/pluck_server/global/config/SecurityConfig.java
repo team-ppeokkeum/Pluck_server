@@ -61,26 +61,8 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests(authorize -> authorize
 
-                        .requestMatchers("/auth/**", "/main", "/club/info/**", "/user/all", "/main/banner", "/image")
+                        .requestMatchers("/chat/**", "/ws/chat/**")
                         .permitAll()
-
-                        .requestMatchers("/report/apply/**", "/report/cancel/**", "/interview/choose-time", "/interview/query-time")
-                        .hasAnyRole("INDEPENDENT", "ADMIN")
-
-                        .requestMatchers("/report/applicant/**", "/report/report-info/**", "/report/query-memo/**", "/report/modify-memo", "/question/query/**")
-                        .hasAnyRole("CLUB_MEMBER", "CLUB_LEADER", "ADMIN")
-
-                        .requestMatchers("/club/modify", "/notice/create", "/notice/delete/**", "/question/answer",
-                                "/mess/create", "/mess/delete/**", "/alarm/interview-result", "/interview/modify-time")
-                        .hasAnyRole("CLUB_LEADER", "ADMIN")
-
-                        .requestMatchers("/admin-club/page", "/admin-club/edit-member", "/mess/accept/**", "/mess/all")
-                        .hasAnyRole("TEACHER", "CLUB_LEADER_TEACHER", "ADMIN")
-
-                        .requestMatchers("/admin-club/create", "/admin-club/delete/**", "/announcement/create"
-                        ).hasAnyRole("CLUB_LEADER_TEACHER", "ADMIN")
-
-                        .anyRequest().authenticated()
                 )
 
                 .with(new FilterConfig(jwtTokenProvider, objectMapper), Customizer.withDefaults());
