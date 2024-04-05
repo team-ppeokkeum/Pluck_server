@@ -2,12 +2,16 @@ package com.example.pluck_server.domain.user.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
+
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -17,15 +21,26 @@ import lombok.NoArgsConstructor;
 public class User {
 
     @Id
-    @Column(name = "id", nullable = false)
-    private String id;
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+    @Column(name = "id", columnDefinition = "BINARY(16)", nullable = false)
+    private UUID id = UUID.randomUUID();
 
-    @Column(name = "account_id", nullable = false)
+    @Column(name = "account_id", length = 15, nullable = false)
     private String accountId;
 
-    @Column(name = "nickname", nullable = false)
+    @Column(name = "password", length = 20, nullable = false)
+    private String password;
+
+    @Column(name = "nickname", length = 15, nullable = false)
     private String nickname;
 
-    @Column(name = "name", length = 4, nullable = false)
-    private String name;
+    @Column(name = "profile_img_url")
+    private String profileImgUrl;
+
+    @Column(name = "heart_count", nullable = false)
+    private Integer heartCount = 0;
+
+    @Column(name = "one_liner", length = 30)
+    private String oneLiner;
 }
