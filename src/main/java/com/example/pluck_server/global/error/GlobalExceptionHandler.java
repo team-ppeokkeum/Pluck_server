@@ -1,6 +1,6 @@
 package com.example.pluck_server.global.error;
 
-import com.example.pluck_server.global.error.exception.BusinessException;
+import com.example.pluck_server.global.error.exception.PluckException;
 import com.example.pluck_server.global.error.exception.ErrorCode;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.exception.ConstraintViolationException;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
 
     //비즈니스 로직에서의 에러
-    @ExceptionHandler(BusinessException.class)
-    public ResponseEntity<ErrorResponse> handleBusinessException(BusinessException e) {
+    @ExceptionHandler(PluckException.class)
+    public ResponseEntity<ErrorResponse> handlePluckException(PluckException e) {
 
         ErrorCode errorCode = e.getErrorCode();
         ErrorResponse response = ErrorResponse.of(errorCode, errorCode.getMessage());

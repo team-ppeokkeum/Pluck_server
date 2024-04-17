@@ -5,6 +5,6 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class BusinessException extends RuntimeException {
+public class PluckException extends RuntimeException {
     private final ErrorCode errorCode;
 }
