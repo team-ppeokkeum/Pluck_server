@@ -21,7 +21,7 @@ public class Tag {
 
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", unique = true, nullable = false)
     private User userId;
 
     @Column(name = "tag", nullable = false)

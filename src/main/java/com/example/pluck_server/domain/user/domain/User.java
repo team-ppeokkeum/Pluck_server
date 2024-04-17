@@ -23,10 +23,10 @@ public class User {
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    @Column(name = "id", columnDefinition = "BINARY(16)", nullable = false)
+    @Column(name = "id", columnDefinition = "BINARY(16)", unique = true, nullable = false)
     private UUID id = UUID.randomUUID();
 
-    @Column(name = "account_id", nullable = false)
+    @Column(name = "account_id", unique = true, nullable = false)
     private String accountId;
 
     @Column(name = "password", nullable = false)
