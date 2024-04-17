@@ -1,6 +1,6 @@
 package com.example.pluck_server.global.error.exception;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import  com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -16,6 +16,7 @@ public enum ErrorCode {
 
     // user
     USER_NOT_FOUND(404, "사용자를 찾을 수 없습니다."),
+    PASSWORD_MISMATCH(401, "비밀번호가 일치하지 않습니다."),
 
     // general
     BAD_REQUEST(400, "프론트 탓..."),
