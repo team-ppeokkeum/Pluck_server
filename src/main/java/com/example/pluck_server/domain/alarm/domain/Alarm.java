@@ -18,7 +18,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.UUID;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -40,6 +40,9 @@ public class Alarm {
     @Column(name = "alarm_type", nullable = false)
     private AlarmType alarmType;
 
-    @Column(name = "alarm_sender", columnDefinition = "BINARY(16)", nullable = false)
-    private UUID alarmSender;
+    @Column(name = "account_id", nullable = false)
+    private String accountId;
+
+    @Column(name = "send_time", nullable = false)
+    private LocalDateTime sendTime;
 }
