@@ -23,6 +23,6 @@ public class ChatRoom {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "room_name", length = 15, nullable = false)
+    @Column(name = "room_name", nullable = false)
     private String roomName;
 }

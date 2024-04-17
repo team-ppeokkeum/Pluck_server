@@ -23,6 +23,6 @@ public class Inquiry {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "inquiry", length = 300, nullable = false)
+    @Column(name = "inquiry", nullable = false)
     private String inquiry;
 }

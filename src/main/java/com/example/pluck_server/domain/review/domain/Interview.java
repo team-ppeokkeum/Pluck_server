@@ -37,7 +37,7 @@ public class Interview {
     @Column(name = "review_sender", columnDefinition = "BINARY(16)", nullable = false)
     private UUID reviewSender;
 
-    @Column(name = "content", length = 200, nullable = false)
+    @Column(name = "content", nullable = false)
     private String content;
 
     @Column(name = "write_time", nullable = false)

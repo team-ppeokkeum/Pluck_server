@@ -24,6 +24,6 @@ public class ChatMessage {
     @JoinColumn(name = "chat_room", nullable = false)
     private ChatRoom chatRoom;
 
-    @Column(name = "chat_content", length = 100, nullable = false)
+    @Column(name = "chat_content", nullable = false)
     private String chatContent;
 }

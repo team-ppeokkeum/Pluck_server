@@ -24,6 +24,6 @@ public class Tag {
     @JoinColumn(name = "user_id", nullable = false)
     private User userId;
 
-    @Column(name = "tag", length = 8, nullable = false)
+    @Column(name = "tag", nullable = false)
     private String tag;
 }

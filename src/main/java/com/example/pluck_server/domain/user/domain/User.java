@@ -26,13 +26,13 @@ public class User {
     @Column(name = "id", columnDefinition = "BINARY(16)", nullable = false)
     private UUID id = UUID.randomUUID();
 
-    @Column(name = "account_id", length = 15, nullable = false)
+    @Column(name = "account_id", nullable = false)
     private String accountId;
 
-    @Column(name = "password", length = 20, nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "nickname", length = 15, nullable = false)
+    @Column(name = "nickname", nullable = false)
     private String nickname;
 
     @Column(name = "profile_img_url")
@@ -41,6 +41,6 @@ public class User {
     @Column(name = "heart_count", nullable = false)
     private Integer heartCount = 0;
 
-    @Column(name = "one_liner", length = 30)
+    @Column(name = "one_liner")
     private String oneLiner;
 }
