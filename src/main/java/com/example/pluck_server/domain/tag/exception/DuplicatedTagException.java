@@ -8,6 +8,6 @@ public class DuplicatedTagException extends PluckException {
     public static final PluckException EXCEPTION = new DuplicatedTagException();
 
     public DuplicatedTagException() {
-        super(ErrorCode.USER_NOT_FOUND);
+        super(ErrorCode.DUPLICATED_TAG);
     }
 }
