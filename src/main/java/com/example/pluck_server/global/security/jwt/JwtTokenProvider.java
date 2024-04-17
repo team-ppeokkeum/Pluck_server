@@ -2,7 +2,7 @@ package com.example.pluck_server.global.security.jwt;
 
 import com.example.pluck_server.domain.auth.dao.RefreshTokenRepository;
 import com.example.pluck_server.domain.auth.domain.RefreshToken;
-import com.example.pluck_server.domain.auth.dto.response.LoginResponse;
+import com.example.pluck_server.domain.auth.dto.response.TokenResponse;
 import com.example.pluck_server.domain.auth.exception.ExpiredTokenException;
 import com.example.pluck_server.domain.auth.exception.InvalidTokenException;
 import com.example.pluck_server.domain.user.dao.UserRepository;
@@ -91,14 +91,14 @@ public class JwtTokenProvider {
         }
     }
 
-    public LoginResponse receiveToken(String accountId) {
+    public TokenResponse receiveToken(String accountId) {
 
         Date  now = new Date();
 
         User user = userRepository.findByAccountId(accountId)
                 .orElseThrow(() -> UserNotFoundException.EXCEPTION);
 
-        return LoginResponse
+        return TokenResponse
                 .builder()
                 .accessToken(createAccessToken(accountId))
                 .refreshToken(createRefreshToken(accountId))

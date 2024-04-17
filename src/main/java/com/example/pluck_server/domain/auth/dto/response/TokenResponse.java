@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Getter
 @Builder
-public class LoginResponse {
+public class TokenResponse {
 
     private String accessToken;
 
