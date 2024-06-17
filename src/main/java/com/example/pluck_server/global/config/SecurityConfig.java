@@ -61,7 +61,7 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests(authorize -> authorize
 
-                        .requestMatchers("/chat/**", "/ws/chat/**")
+                        .requestMatchers("/chat/**", "/ws/chat/**", "/auth/**", "/tag/**")
                         .permitAll()
                 )
 
